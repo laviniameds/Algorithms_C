@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void binario(int n){
+void binario(unsigned int n){
   int i, j = 0;
   char bin[32] = {0};
   while(n != 0){
@@ -25,7 +25,7 @@ int paridade(int n){
 }
 
 int main(){
-  int l;
+  unsigned int l;
   scanf("%d", &l);
   while(l != 0){
     printf("The parity of ");
