@@ -1,12 +1,20 @@
 #include <stdio.h>
 
-unsigned int int_to_int(unsigned int k) {
-    if (k == 0) return 0;
-    if (k == 1) return 1;
-    return (k % 2) + 10 * int_to_int(k / 2);
+void binario(int n){
+  int i, j = 0;
+  char bin[40] = {0};
+  while(n != 0){
+    if(n%2 == 0) bin[j] = '0';
+    else bin[j] = '1';
+    n = n/2;
+    j++;
+  }
+  for(i=39; i>=0; i--){
+   printf("%c", bin[i]);
+  }
 }
 
-unsigned int paridade(unsigned int n){
+int paridade(int n){
   int count = 0;
   while(n != 0){
     if(n%2 == 1)
@@ -17,11 +25,16 @@ unsigned int paridade(unsigned int n){
 }
 
 int main(){
-  unsigned int l;
+  int l;
   scanf("%d", &l);
-  while(l != 0 && l <=2147483647){
-    printf("The parity of %u is %u (mod 2).\n",int_to_int(l) ,paridade(l));
-    scanf("%d", &l);
+  while(l != 0){
+    if(l >= 1 && l <= 2147483647){
+      printf("The parity of ");
+      binario(l);
+      printf(" is %d (mod 2).\n", paridade(l));
+      scanf("%d", &l);
+    }
+    else break;
   }
   return 0;
 }
