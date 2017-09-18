@@ -2,14 +2,14 @@
 
 void binario(int n){
   int i, j = 0;
-  char bin[40] = {0};
+  char bin[32] = {0};
   while(n != 0){
     if(n%2 == 0) bin[j] = '0';
     else bin[j] = '1';
     n = n/2;
     j++;
   }
-  for(i=39; i>=0; i--){
+  for(i=j-1; i>=0; i--){
    printf("%c", bin[i]);
   }
 }
