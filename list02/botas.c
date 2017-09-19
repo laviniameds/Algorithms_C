@@ -11,7 +11,7 @@ int main(){
     }
     for(i=0;i<n;i++)
       for(j=(i+1);j<n;j++){
-        if(((num[i] + num[j])/2 == num[j]) && tam[i] != tam[j]){
+         if((num[i] == num[j]) && (tam[i] != tam[j]) && ((tam[i] == 'E' || tam[i] == 'D') && (tam[j] == 'E' || tam[j] == 'D'))){
             count++;
             num[i] = 0;
             tam[i] = 'K';
