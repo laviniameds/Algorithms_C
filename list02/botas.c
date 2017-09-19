@@ -6,7 +6,7 @@ int main(){
   while(scanf("%d", &n) != EOF){
     int num[n];
     char tam[n];
-    for(i=0;i<n;i++){
+    for(i=0;i<n-1;i++){
       scanf("%d %c", &num[i], &tam[i]);
     }
     for(i=0;i<n;i++)
