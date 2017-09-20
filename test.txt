@@ -1,10 +1,3 @@
-URI Online Judge
-AbcdEfgh99
-URIOnlineJudge12
-URI Online Judge 12
-Aass9
-Aassd9
-Uri@OnlineJudge2016
-#URIOnlineJudge12
-URIONLINEJUDGE2016
-urionlinejudge2016
+13 8
+4 9
+6 5
