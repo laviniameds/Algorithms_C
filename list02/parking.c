@@ -19,7 +19,7 @@ int main(){
           if(estacionamento[k] == 1){
             count++;
             if(count == t){
-              while(t>=0){
+              while(t != 0){
                 estacionamento[k--] = p;
                 t--;
               }
@@ -36,9 +36,11 @@ int main(){
           if(p == estacionamento[k])
             estacionamento[k] = 1;
       }
+      count=0;
     }
     printf("%d\n", valor);
     valor = 0;
+    count = 0;
   }
 
   return 0;
