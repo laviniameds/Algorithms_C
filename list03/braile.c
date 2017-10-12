@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(){
   int d, numDecimal, tamanho = 1, i, qtd;
-  char tipo, braile1[400];
+  char tipo, braile1[400], braile2[400];
 
   scanf("%d" ,&d);
   while(d != 0){
@@ -60,43 +61,42 @@ int main(){
       printf("\n");
     }
     else{
-      tamanho = d*3;
-      scanf(" %[^\n]s", braile1);
-
-      for(i=0;i<3;i++)
-          printf("%c", braile1[i]);
-      /*for(i=0;i<tamanho-1;i++){
-        if((braile1[i] == '*') && (braile1[i+1] == '.')){
-          if((braile2[i] == '.') && (braile2[i+1] == '.'))
-            printf("1 ");
-          else if((braile2[i] == '*') && (braile2[i+1] == '.'))
-            printf("2 ");
-          else if((braile2[i] == '.') && (braile2[i+1] == '*'))
-            printf("5 ");
-          else if((braile2[i] == '*') && (braile2[i+1] == '*'))
-            printf("8 ");
+        scanf(" %[^\n]s", braile1);
+        tamanho = strlen(braile1);
+        scanf(" %[^\n]s", braile2);
+        for(i=0;i<tamanho-1;i++){
+          if((braile1[i] == '*') && (braile1[i+1] == '.')){
+            if((braile2[i] == '.') && (braile2[i+1] == '.'))
+              printf("1");
+            else if((braile2[i] == '*') && (braile2[i+1] == '.'))
+              printf("2");
+            else if((braile2[i] == '.') && (braile2[i+1] == '*'))
+              printf("5");
+            else if((braile2[i] == '*') && (braile2[i+1] == '*'))
+              printf("8");
+          }
+          else if((braile1[i] == '*') && (braile1[i+1] == '*')){
+            if((braile2[i] == '.') && (braile2[i+1] == '.'))
+              printf("3");
+            else if((braile2[i] == '.') && (braile2[i+1] == '*'))
+              printf("4");
+            else if((braile2[i] == '*') && (braile2[i+1] == '.'))
+              printf("6");
+            else if((braile2[i] == '*') && (braile2[i+1] == '*'))
+              printf("7");
+          }
+          else if((braile1[i] == '.') && (braile1[i+1] == '*')){
+            if((braile2[i] == '*') && (braile2[i+1] == '.'))
+              printf("9");
+            else if((braile2[i] == '*') && (braile2[i+1] == '*'))
+              printf("0");
+          }
         }
-        else if((braile1[i] == '*') && (braile1[i+1] == '*')){
-          if((braile2[i] == '.') && (braile2[i+1] == '.'))
-            printf("3 ");
-          else if((braile2[i] == '.') && (braile2[i+1] == '*'))
-            printf("4 ");
-          else if((braile2[i] == '*') && (braile2[i+1] == '.'))
-            printf("6 ");
-          else if((braile2[i] == '*') && (braile2[i+1] == '*'))
-            printf("7 ");
-        }
-        else if((braile1[i] == '.') && (braile1[i+1] == '*')){
-          if((braile2[i] == '*') && (braile2[i+1] == '.'))
-            printf("9 ");
-          else if((braile2[i] == '*') && (braile2[i+1] == '*'))
-            printf("0 ");
-        }
-      }*/
+      scanf(" %[^\n]s", braile3);
+      printf("\n");
     }
     scanf("%d" ,&d);
   }
-  printf("\n");
 
   return 0;
 }
