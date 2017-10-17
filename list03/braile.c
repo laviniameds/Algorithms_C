@@ -2,7 +2,7 @@
 #include <string.h>
 
 int main(){
-  int d, numDecimal, tamanho = 1, i, qtd;
+  int d, tamanho = 1, i;
   char tipo, braile1[400], braile2[400];
 
   scanf("%d" ,&d);
@@ -10,47 +10,35 @@ int main(){
 
     scanf(" %c", &tipo);
       if(tipo == 'S'){
-        scanf("%d", &numDecimal);
-
-        qtd = d;
-        tamanho = 1;
-        int digitos[qtd];
-        while(--qtd != 0)
-          tamanho *= 10;
+        char numDecimal[d+1];
+        scanf(" %[^\n]s", numDecimal);
 
         for(i=0;i<d;i++){
-          if(tamanho == 0) tamanho = 1;
-          digitos[i] = numDecimal/tamanho;
-          numDecimal = numDecimal%tamanho;
-          tamanho = tamanho/10;
-        }
-
-        for(i=0;i<d;i++){
-          if(digitos[i] == 1 || digitos[i] == 2 ||
-            digitos[i] == 5 || digitos[i] == 8){
+          if(numDecimal[i] == '1' || numDecimal[i] == '2' ||
+            numDecimal[i] == '5' || numDecimal[i] == '8'){
               printf("*. ");
           }
-          if(digitos[i] == 3 || digitos[i] == 4 ||
-            digitos[i] == 6 || digitos[i] == 7){
+          if(numDecimal[i] == '3' || numDecimal[i] == '4' ||
+            numDecimal[i] == '6' || numDecimal[i] == '7'){
               printf("** ");
           }
-          else if(digitos[i] == 9 || digitos[i] == 0)
+          else if(numDecimal[i] == '9' || numDecimal[i] == '0')
             printf(".* ");
         }
         printf("\n");
 
         for(i=0;i<d;i++){
-          if(digitos[i] == 1 || digitos[i] == 3){
+          if(numDecimal[i] == '1' || numDecimal[i] == '3'){
               printf(".. ");
           }
-          if(digitos[i] == 2 || digitos[i] == 6 ||
-            digitos[i] == 9){
+          if(numDecimal[i] == '2' || numDecimal[i] == '6' ||
+            numDecimal[i] == '9'){
               printf("*. ");
           }
-          else if(digitos[i] == 4 || digitos[i] == 5){
+          else if(numDecimal[i] == '4' || numDecimal[i] == '5'){
             printf(".* ");
           }
-          else if(digitos[i] == 7 || digitos[i] == 8 || digitos[i] == 0){
+          else if(numDecimal[i] == '7' || numDecimal[i] == '8' || numDecimal[i] == '0'){
             printf("** ");
           }
         }
@@ -92,7 +80,7 @@ int main(){
               printf("0");
           }
         }
-      scanf(" %[^\n]s", braile3);
+      scanf(" %[^\n]s", braile2);
       printf("\n");
     }
     scanf("%d" ,&d);
