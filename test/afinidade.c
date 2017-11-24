@@ -2,7 +2,7 @@
 
 int main() {
 
-  int afinidade, qtdPessoas, i, j, k, x, z, p1, p2, p3;
+  int afinidade, qtdPessoas, i, j, k, x, z, p1, p2, p3, maior=0;
 
   scanf("%d %d" ,&qtdPessoas, &afinidade);
 
@@ -17,8 +17,6 @@ int main() {
     scanf("%d %d", &i, &j);
     scanf("%d", &matriz[i][j]);
   }
-
-  int maior = 0;
 
   for(k=0;k<afinidade;k++)
     for(x=0;x<afinidade;x++)
