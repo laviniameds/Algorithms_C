@@ -15,7 +15,7 @@ int soma_matriz(int matriz_afinidade[MAX][MAX], int vet_solucao[MAX_COMB]){
 }
 
 /* faz combinacao de n, 3 em 3 */
-int combinacao(int matriz_afinidade[MAX][MAX], int k, int vet_bool[MAX], int vet[MAX],
+int combinacao(int matriz_afinidade[MAX][MAX], int k, int vet_bool[MAX],
   int n, int qtd, int vet_solucao[MAX_COMB], int maiorTotal){
 
   int i, c=0, maior=0;
@@ -39,9 +39,9 @@ int combinacao(int matriz_afinidade[MAX][MAX], int k, int vet_bool[MAX], int vet
 
   else{
     vet_bool[k] = 1;
-    maiorTotal=combinacao(matriz_afinidade, k+1, vet_bool, vet, n, qtd+1, vet_solucao, maiorTotal);
+    maiorTotal=combinacao(matriz_afinidade, k+1, vet_bool, n, qtd+1, vet_solucao, maiorTotal);
     vet_bool[k] = 0;
-    maiorTotal=combinacao(matriz_afinidade, k+1, vet_bool, vet, n, qtd, vet_solucao, maiorTotal);
+    maiorTotal=combinacao(matriz_afinidade, k+1, vet_bool, n, qtd, vet_solucao, maiorTotal);
   }
   return maiorTotal;
 }
@@ -50,7 +50,6 @@ int main(int argc, char const *argv[]) {
 
   int vet_bool[MAX] = {0};
   int vet_solucao[MAX_COMB] = {0};
-  int vet[MAX] = {0};
   int matriz_afinidade[MAX][MAX];
   int n, qtdPessoas, i, j, k, x, afinidade, maiorTotal;
 
@@ -59,9 +58,6 @@ int main(int argc, char const *argv[]) {
   for(k=0;k<=qtdPessoas;k++)
     for(x=0;x<=qtdPessoas;x++)
       matriz_afinidade[k][x] = 0;
-
-  for(k=0;k<=qtdPessoas;k++)
-    vet[k] = k;
 
   for(k=0;k<n;k++){
     scanf("%d %d %d", &i, &j, &afinidade);
@@ -72,7 +68,7 @@ int main(int argc, char const *argv[]) {
   for (i=0 ; i<MAX_COMB ; ++i)
     melhor_afin[i]=i+1;
   maiorTotal=0;
-  maiorTotal=combinacao(matriz_afinidade, 1, vet_bool, vet, qtdPessoas, 0, vet_solucao, maiorTotal);
+  maiorTotal=combinacao(matriz_afinidade, 1, vet_bool, qtdPessoas, 0, vet_solucao, maiorTotal);
 
   for(i=0;i<MAX_COMB-1;i++)
     printf("%d ", melhor_afin[i]);
